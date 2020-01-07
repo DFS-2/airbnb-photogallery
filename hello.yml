@@ -1,0 +1,14 @@
+config:
+  target: "http://localhost:3004"
+  phases:
+    - duration: 40
+      arrivalRate: 300
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - get:
+        url: "/airbnb/listings/{{$randomNumber(1,1000000)}}"
+    - post: 
+         url: "/airbnb/listings/{{$randomNumber(1,1000000)}}"
